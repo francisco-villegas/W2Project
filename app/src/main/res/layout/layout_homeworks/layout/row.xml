@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.francisco.w2project.W2Project">
+
+    <TextView
+        android:id="@+id/tvLapse"
+        android:textSize="20sp"
+        android:text="00:00:00"
+        android:textStyle="bold"
+        android:background="@drawable/gray_button_boarder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

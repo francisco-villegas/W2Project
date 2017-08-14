@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".w2_project_timer_text">
+
+    <TextView
+        android:padding="40sp"
+        android:gravity="center_horizontal"
+        android:id="@+id/tvTimer"
+        android:textSize="70sp"
+        android:text="00:00:00"
+        android:textStyle="bold"
+        android:background="@drawable/green_button_boarder"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>
