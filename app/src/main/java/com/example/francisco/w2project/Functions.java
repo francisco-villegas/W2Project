@@ -50,9 +50,31 @@ public class Functions {
 
         Log.d(TAG, "testing: "+who);
 
+        boolean found = false;
+        try {
+            String confilctive_fragments[] = Constant.confilctive_fragments;
+            boolean still = true;
+            do {
+                for (int x = 0; x < confilctive_fragments.length; x++) {
+                    Log.d(TAG, "setFragment: "+manager.getBackStackEntryAt(manager.getBackStackEntryCount() - 1).getName());
+                    if (manager.getBackStackEntryAt(manager.getBackStackEntryCount() - 1).getName().toLowerCase().contains(confilctive_fragments[x])) {
+                        manager.popBackStackImmediate();
+                        found = true;
+                    } else {
+                        still = false;
+                    }
+                }
+            } while (still);
+        }catch(Exception ex){}
+
+        if(found){
+            manager.popBackStackImmediate();
+        }
+
+
         if (fragment == null || added_backstack == false) {
             fTransaction.replace(id, new_fragment, who);
-            if(added_backstack)
+            if (added_backstack)
                 fTransaction.addToBackStack(who);
             fTransaction.commit();
             //Toast.makeText(this, "Brand New", Toast.LENGTH_SHORT).show();

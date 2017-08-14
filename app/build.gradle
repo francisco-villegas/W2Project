@@ -30,6 +30,7 @@ android {
                             'src/main/res/layout/layout_week2',
                             'src/main/res/layout'
                     ]
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
         }
     }
 }

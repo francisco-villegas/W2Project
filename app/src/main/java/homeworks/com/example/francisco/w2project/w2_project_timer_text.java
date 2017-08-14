@@ -3,7 +3,6 @@ package com.example.francisco.w2project;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,21 +41,11 @@ public class w2_project_timer_text extends Fragment {
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        try {
-            String confilctive_fragments[] = Constant.confilctive_fragments;
-            boolean still = true;
-            do {
-                for (int x = 0; x < confilctive_fragments.length; x++) {
-                    if (manager.getBackStackEntryAt(manager.getBackStackEntryCount() - 1).getName().toLowerCase().contains(confilctive_fragments[x])) {
-                        manager.popBackStackImmediate();
-                    } else {
-                        still = false;
-                    }
-                }
-            } while (still);
-        }catch(Exception ex){}
         super.onStop();
+    }
+
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
     }
 
     @Subscribe( threadMode = ThreadMode.MAIN)

@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,21 +94,11 @@ public class w2_project_timer_buttons extends Fragment implements View.OnClickLi
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        try {
-            String confilctive_fragments[] = Constant.confilctive_fragments;
-            boolean still = true;
-            do {
-                for (int x = 0; x < confilctive_fragments.length; x++) {
-                    if (manager.getBackStackEntryAt(manager.getBackStackEntryCount() - 1).getName().toLowerCase().contains(confilctive_fragments[x])) {
-                        manager.popBackStackImmediate();
-                    } else {
-                        still = false;
-                    }
-                }
-            } while (still);
-        }catch(Exception ex){}
         super.onStop();
+    }
+
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
     }
 
     @Subscribe( threadMode = ThreadMode.MAIN)
